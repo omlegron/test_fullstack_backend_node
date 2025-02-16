@@ -8,6 +8,10 @@
     
     FRONTEND [git@github.com:omlegron/test_fullstack_backend_node.git](https://github.com/omlegron/test_fullstack_frontend_react.git)
 
+- LINK PUBLISH
+    [FRONTEND](https://frontend-tested.netlify.app/dashboards/analytics/)
+    [BACKEND](https://backend-tested.netlify.app/.netlify/functions/index/api/analytics)
+
 - BACKEND NODE JS / EXPRESS JS 
     – FIRST RUN 
         NPM INSTALL 
