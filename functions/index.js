@@ -50,6 +50,6 @@ function errorHandler (err, req, res, next) {
   res.render('error', { error: err })
 }
 
-require('./routes/route.config')(app);
+require('../routes/route.config')(app);
 
 module.exports.handler = serverless(app);
