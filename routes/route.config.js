@@ -33,7 +33,7 @@ module.exports = function(app) {
 		};
 	}
 
-	app.get('/.netlify/functions', function(req, res) {
+	app.get('/.netlify/functions/index', function(req, res) {
 	    res.sendFile(path.join(__dirname + '/../app/index.html')); // Set index.html as layout
 	});
 
@@ -48,28 +48,28 @@ module.exports = function(app) {
 		
 		if (routeController.index) {
 			app.get(
-				`/.netlify/functions/api/${routeName}`,
+				`/.netlify/functions/index/api/${routeName}`,
 	      		// [middlewareJwt.verifyToken], // Activated Auth JsonWebtoken
 	      		makeHandlerAwareOfAsyncErrors(routeController.index)
 	      );
 		}
 		if (routeController.getByCustome) {
 			app.get(
-				`/.netlify/functions/api/${routeName}/:id`,
+				`/.netlify/functions/index/api/${routeName}/:id`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.getByCustome)
 				);
 		}
 		if (routeController.getById) {
 			app.get(
-				`/.netlify/functions/api/${routeName}/:id`,
+				`/.netlify/functions/index/api/${routeName}/:id`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.getById)
 				);
 		}
 		if (routeController.create) {
 			app.post(
-				`/.netlify/functions/api/${routeName}`,
+				`/.netlify/functions/index/api/${routeName}`,
 				// [
 				// 	middlewareJwt.verifyToken
 				// ],
@@ -78,35 +78,35 @@ module.exports = function(app) {
 		}
 		if (routeController.update) {
 			app.put(
-				`/.netlify/functions/api/${routeName}/:id`,
+				`/.netlify/functions/index/api/${routeName}/:id`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.update)
 				);
 		}
 		if (routeController.updateStatus) {
 			app.put(
-				`/.netlify/functions/api/${routeName}/:id/:status`,
+				`/.netlify/functions/index/api/${routeName}/:id/:status`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.updateStatus)
 				);
 		}
 		if (routeController.removeAll) {
 			app.delete(
-				`/.netlify/functions/api/${routeName}/removeAll`,
+				`/.netlify/functions/index/api/${routeName}/removeAll`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.removeAll)
 				);
 		}
 		if (routeController.removeMulti) {
 			app.delete(
-				`/.netlify/functions/api/${routeName}/removeMulti`,
+				`/.netlify/functions/index/api/${routeName}/removeMulti`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.removeMulti)
 				);
 		}
 		if (routeController.remove) {
 			app.delete(
-				`/.netlify/functions/api/${routeName}/:id`,
+				`/.netlify/functions/index/api/${routeName}/:id`,
 				// [middlewareJwt.verifyToken],
 				makeHandlerAwareOfAsyncErrors(routeController.remove)
 				);
