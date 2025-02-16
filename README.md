@@ -18,7 +18,7 @@
         NPM START
 
     – SECOND RUN
-        OPEN http://localhost:3000
+        OPEN http://localhost:3000/api/analytics
 
 - FRONTEND REACT
     - FIRST RUN
