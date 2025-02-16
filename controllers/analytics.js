@@ -42,7 +42,7 @@ async function index(req, res) {
 		
 		return res.json({
 			'data': response.data,
-			'analytics': dataAnal
+			'dataAnalytics': dataAnal
 		});
 		// res.json(response.data);
 	} catch (error) {
