@@ -2,16 +2,15 @@ var express = require('express'),
     path = require('path'),
     app = express(),
     http = require('http'),
-    PORT = process.env.PORT || 3000,
     bodyParser = require('body-parser'),
-	  request = require('request'),
+    request = require('request'),
     methodOverride = require('method-override'),
     fs = require('fs'),
     cors = require('cors'),
-    axios = require('axios');
-    require('dotenv').config();
+    axios = require('axios'),
+    serverless = require('serverless-http');
+require('dotenv').config();
 
-var server = require('http').createServer(app);
 app.use(cors());
 app.options('*', cors())
 app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
@@ -51,17 +50,6 @@ function errorHandler (err, req, res, next) {
   res.render('error', { error: err })
 }
 
-
 require('./routes/route.config')(app);
 
-
-async function init() {
-
-  console.log(`Starting Express example on port ${PORT}...`);
-
-  server.listen(PORT, () => {
-    console.log(`Express server started on port ${PORT}. Try some routes`);
-  });
-}
-
-init();
+module.exports.handler = serverless(app);
