@@ -114,4 +114,76 @@ module.exports = function(app) {
 		
 	}
 
+	// For Local 
+	for (const [routeName, routeController] of Object.entries(routes)) {
+		
+		
+		if (routeController.index) {
+			app.get(
+				`/api/${routeName}`,
+	      		// [middlewareJwt.verifyToken], // Activated Auth JsonWebtoken
+	      		makeHandlerAwareOfAsyncErrors(routeController.index)
+	      );
+		}
+		if (routeController.getByCustome) {
+			app.get(
+				`/api/${routeName}/:id`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.getByCustome)
+				);
+		}
+		if (routeController.getById) {
+			app.get(
+				`/api/${routeName}/:id`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.getById)
+				);
+		}
+		if (routeController.create) {
+			app.post(
+				`/api/${routeName}`,
+				// [
+				// 	middlewareJwt.verifyToken
+				// ],
+				makeHandlerAwareOfAsyncErrors(routeController.create)
+				);
+		}
+		if (routeController.update) {
+			app.put(
+				`/api/${routeName}/:id`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.update)
+				);
+		}
+		if (routeController.updateStatus) {
+			app.put(
+				`/api/${routeName}/:id/:status`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.updateStatus)
+				);
+		}
+		if (routeController.removeAll) {
+			app.delete(
+				`/api/${routeName}/removeAll`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.removeAll)
+				);
+		}
+		if (routeController.removeMulti) {
+			app.delete(
+				`/api/${routeName}/removeMulti`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.removeMulti)
+				);
+		}
+		if (routeController.remove) {
+			app.delete(
+				`/api/${routeName}/:id`,
+				// [middlewareJwt.verifyToken],
+				makeHandlerAwareOfAsyncErrors(routeController.remove)
+				);
+		}
+		
+	}
+
 }
